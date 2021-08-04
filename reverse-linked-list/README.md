@@ -32,4 +32,4 @@
 </div>
 
 
-<p><strong>iterative and reverese solution present</strong></p>
+<p><strong>Both Iterative and recursive solutions are available</strong></p>
