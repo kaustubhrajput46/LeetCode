@@ -11,8 +11,6 @@ class Solution {
             }
             set.clear();
         }
-        // set.clear();
-        // System.out.println("row clear");
         //check columns
         for(int i = 0; i < 9; i++){
             for(int j = 0; j < 9; j++){
@@ -25,8 +23,6 @@ class Solution {
             }
             set.clear();
         }
-        // set.clear();
-        // System.out.println("column clear");
         for(int k = 0; k < 9; k=k+3){
             set.clear();
             for(int i = 0; i < 9; i++){
