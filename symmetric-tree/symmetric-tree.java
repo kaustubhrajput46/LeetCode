@@ -22,9 +22,7 @@ class Solution {
         left(root.left, left);
         right(root.right, right);
         
-        for(int i = 0; i < left.size(); i++){
-            if (left.get(i) != right.get(i)) return false;
-        }
+        if(!left.equals(right)) return false;
         return true;
     }
 
