@@ -14,11 +14,8 @@ class Solution {
         ListNode head = new ListNode(-101);
         //traverse the list as we keep adding nodes to it.
         ListNode ref = head;
-        // System.out.println(ref.val); //remove
         // traverse the two lists
         while(true){
-        // System.out.println(ref.val); //remove
-        // System.out.println(head.val); //remove
 
             if(l1 == null)
                 if(l2 == null){
@@ -54,7 +51,3 @@ class Solution {
 }
 
 
-
-// p1 and p2 pinters for l1 and l2
-// if p1 <= p2 ==> put p1 pointer into new list; increment p1
-// else put p2 in new inlst, increment p2
