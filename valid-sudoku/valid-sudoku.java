@@ -15,9 +15,6 @@ class Solution {
         for(int i = 0; i < 9; i++){
             for(int j = 0; j < 9; j++){
                 if(board[j][i] == dot) continue;
-                // int num = board[i][j] - '0';
-                // System.out.println(num);
-                // int num = Integer.parseInt(board[i][j]);
                 if(set.contains(board[j][i] - '0')) return false;
                 else set.add(board[j][i] - '0');
             }
