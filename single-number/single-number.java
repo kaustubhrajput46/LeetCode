@@ -21,7 +21,3 @@ class Solution {
 
     }
 }
-
-// add elements if not present
-// remove element if already present
-// lastly hashSet should have only one element.
