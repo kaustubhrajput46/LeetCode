@@ -13,13 +13,6 @@ class Solution {
             
         }
         
-        
-        // for(int i : nums){
-        //     if(map.contains(target - i))
-        //         return new int[]{i, target - i};
-        //     else
-        //         map.add(i);
-        // }
         return new int[]{0,0};
     }
 }
