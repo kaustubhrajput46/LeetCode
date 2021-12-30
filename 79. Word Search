@@ -1,0 +1,121 @@
+79. Word Search
+
+
+Attempted solution
+
+class Solution {
+    public boolean exist(char[][] board, String word) {
+        //1. get the indexes with matching letter with word's first letter
+        
+        // Map<Integer, Integer> matchmap = new HashMap<>();
+        List<int[]> matchlist = new ArrayList<>();
+        int m = board.length;
+        int n = board[0].length;
+        char firstChar = word.charAt(0);
+        
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if (board[i][j] == firstChar)
+                    matchlist.add(new int[]{i,j});
+            }
+        }
+        System.out.println(matchlist.size()); //remove
+        
+        //2. Exhaust matchlist until matching word is found on board
+        
+        //Maintain set for already traversed indexes
+        Set<Integer> traversed = new HashSet<>();
+        while(matchlist.size() != 0){
+            int i = matchlist.get(0)[0];
+            int j = matchlist.get(0)[1];
+            // System.out.println("i:"+i+" j:"+j); //remove
+            traversed.add(i*10+j);
+            //word pointer
+            int p = 1;
+            while (true){
+            System.out.println("i:"+i+" j:"+j); //remove
+                if (p == word.length()) 
+                    return true;
+                if(!traversed.contains(i*10+j-1)){
+                    if(i>=0 && i<m && (j-1)>=0 && (j-1)<n ){
+                        if( board[i][j-1] == word.charAt(p)){
+                            traversed.add(i*10+j-1);
+                            System.out.println("i:"+i+" j:"+(j-1)+" "+board[i][j-1]); //remove
+                            p++;
+                            j = j-1;
+                            continue;
+                           }
+                    }                    
+                }
+                if(!traversed.contains(i*10+j+1)){
+                    if(i>=0 && i<m && (j+1)>=0 && (j+1)<n ){
+                        if( board[i][j+1] == word.charAt(p)){
+                            traversed.add(i*10+j+1);
+                            System.out.println("i:"+i+" j:"+(j+1)+" "+board[i][j+1]); //remove
+                            p++;
+                            j = j+1;
+                            continue;
+                           }
+                    }                    
+                }
+                if(!traversed.contains((i-1)*10+j)){
+                    if((i-1)>=0 && (i-1)<m && j>=0 && j<n ){
+                        if( board[i-1][j] == word.charAt(p)){
+                            traversed.add((i-1)*10+j);
+                            System.out.println("i:"+(i-1)+" j:"+j+" "+board[i-1][j]); //remove
+                            p++;
+                            i = i-1;
+                            continue;   
+                        }
+                    }
+                }
+                if(!traversed.contains((i+1)*10+j)){
+                    if((i+1)>=0 && (i+1)<m && j>=0 && j<n ){
+                        if( board[i+1][j] == word.charAt(p)){
+                            traversed.add((i+1)*10+j);
+                            System.out.println("i:"+(i+1)+" j:"+j+" "+board[i+1][j]); //remove
+                            p++;
+                            i = i+1;
+                            continue;
+                           }
+                    }
+                    
+                }
+                
+                if(traversed.size() == m*n || (i == matchlist.get(0)[0] && j == matchlist.get(0)[1]))
+                    break;
+                p=1;
+                i = matchlist.get(0)[0];
+                j = matchlist.get(0)[1];
+            }
+            
+            
+            //remove the first element from matchlist as no matching word found from it
+            matchlist.remove(0);
+            //Reset traversed set for new traversal.
+            traversed.clear();
+        }
+        
+        //
+        
+        //No matching word exists
+        return false;
+    }
+}
+
+//cant do map
+//lets do arraylist
+// how to traverse the board?
+// 1. we will need to go left right top bottom
+// 2. we will need the history of travelled nodes as well.
+// 3. can I modify the traversed elements? -- no I cannot
+// 4. do not traverse same index again.
+
+
+
+
+
+
+*Failed test case :*
+[["A","B","C","E"],["S","F","E","S"],["A","D","E","E"]]
+"ABCESEEEFS"
