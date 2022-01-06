@@ -1,4 +1,4 @@
-<h2>485. Max Consecutive Ones</h2><h3>Easy</h3><hr><div><p>Given a binary array <code>nums</code>, return <em>the maximum number of consecutive </em><code>1</code><em>'s in the array</em>.</p>
+<h2>  Max Consecutive Ones</h2><hr><div><p>Given a binary array <code>nums</code>, return <em>the maximum number of consecutive </em><code>1</code><em>'s in the array</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
